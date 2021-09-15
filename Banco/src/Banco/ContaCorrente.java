@@ -1,38 +1,68 @@
-package Banco;
+package banco;
 
 import java.util.ArrayList;
 
 public class ContaCorrente {
 
     private int agencia, numero;
-    private ArrayList<Transacao> array;
+    private ArrayList<Transacao> array; 
     private Cliente cliente;
 
-    public ContaCorrente(int agencia, int numero, ArrayList<Transacao> array, Cliente cliente) {
+    public ContaCorrente(int agencia, int numero, Cliente cliente) {
         this.agencia = agencia;
         this.numero = numero;
-        this.array = array;
+        this.array = new ArrayList<Transacao>();
         this.cliente = cliente;
     }
 
-    public static void depositar(ArrayList<Transacao> array){
-
+    public void depositar(float valor){
+        Transacao trans = new Transacao("Deposito", 10, valor);
+        assert(trans.getValor() > 0);
+        array.add(trans);
     }
 
-    public static void retirar (ArrayList<Transacao> array){
-
+    public void retirar (float valor){
+        Transacao trans = new Transacao("Saque", 10, valor);
+        assert(trans.getValor() < 0);
+        if(retornar() < 0){
+            float valorRetirado = retornar() * -1;
+            trans.setValor(valorRetirado);
+        }
+        array.add(trans);
     }
 
-    public String retornar(){
+    public float retornar(){
+        float saldo = 0;
+        for(int i = 0; i < array.size(); i++){
+            saldo += array.get(i).getValor();
+        }
+        return saldo;
+    }
+
+    public void extrato(){
+        System.out.println("Extrado do(a) cliente: "+ cliente.getNome());
+        for(int i = 0; i < array.size(); i++){
+            array.get(i).imprimir();
+        }
         
+        System.out.println("Saldo da conta: "+ retornar());
+            
     }
 
-    public static void extrato(){}
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public int getAgencia() {
         return agencia;
     }
-
+    
     public void setAgencia(int agencia) {
         this.agencia = agencia;
     }

@@ -1,4 +1,4 @@
-package Banco;
+package banco;
 
 
 public class Transacao {
@@ -13,8 +13,6 @@ public class Transacao {
         this.data = data;
         this.valor = valor;
     }
-
-
 
     public String getDescricao() {
         return this.descricao;
@@ -44,6 +42,5 @@ public class Transacao {
         System.out.println("Data da transação: "+ getData());
         System.out.println("Descrição: "+ getDescricao());
         System.out.println("Valor: R$ "+ getValor());        
-        
     }
 }
