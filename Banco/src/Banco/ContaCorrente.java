@@ -1,5 +1,7 @@
 package banco;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ContaCorrente {
@@ -7,6 +9,7 @@ public class ContaCorrente {
     private int agencia, numero;
     private ArrayList<Transacao> array; 
     private Cliente cliente;
+
 
     public ContaCorrente(int agencia, int numero, Cliente cliente) {
         this.agencia = agencia;
@@ -16,13 +19,13 @@ public class ContaCorrente {
     }
 
     public void depositar(float valor){
-        Transacao trans = new Transacao("Deposito", 10, valor);
+        Transacao trans = new Transacao("Deposito", valor);
         assert(trans.getValor() > 0);
         array.add(trans);
     }
 
     public void retirar (float valor){
-        Transacao trans = new Transacao("Saque", 10, valor);
+        Transacao trans = new Transacao("Saque", valor);
         assert(trans.getValor() < 0);
         if(retornar() < 0){
             float valorRetirado = retornar() * -1;

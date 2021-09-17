@@ -1,16 +1,18 @@
 package banco;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Transacao {
 
     private String descricao;
-    private int data;
+    private LocalDate data= LocalDate.now();
     private Float valor;
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    String dataFormatado = this.data.format(formatter);
 
-
-    public Transacao(String descricao, int data, Float valor) {
+    public Transacao(String descricao, Float valor) {
         this.descricao = descricao;
-        this.data = data;
         this.valor = valor;
     }
 
@@ -22,12 +24,12 @@ public class Transacao {
         this.descricao = descricao;
     }
 
-    public int getData() {
-        return this.data;
+    public String getData() {
+        return dataFormatado;
     }
 
-    public void setData(int data) {
-        this.data = data;
+    public void setData(int ano, int mes, int dia) {
+        this.data = LocalDate.of(ano, mes, dia);
     }
 
     public Float getValor() {
