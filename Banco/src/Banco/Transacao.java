@@ -43,6 +43,7 @@ public class Transacao {
     public void imprimir() {
         System.out.println("Data da transação: "+ getData());
         System.out.println("Descrição: "+ getDescricao());
-        System.out.println("Valor: R$ "+ getValor());        
+        System.out.println("Valor: R$ "+ getValor());       
+        System.out.println("-----------------------------------");       
     }
 }
