@@ -45,7 +45,9 @@ public class ContaCorrente {
     }
 
     public void extrato(){
+
         System.out.println("Extrato do(a) cliente: "+ cliente.getNome() + ", conta: " + this.numero + ", agência: " + this.agencia);
+
         System.out.println("--------------------------------------------");
         for(int i = 0; i < array.size(); i++){
             array.get(i).imprimir();

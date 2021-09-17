@@ -22,8 +22,7 @@ public class Cliente {
         Random random = new Random();
         int numero = random. nextInt(10000); 
         int numero2 = random. nextInt(10000);
-        
-        
+
         for(int i = 0; i < contaCorrentes.size(); i++){
             contaCorrentes.get(i).depositar(numero);
             contaCorrentes.get(i).retirar(numero2 * -1);
@@ -55,13 +54,15 @@ public class Cliente {
         System.out.println("Cliente: " + this.nome);
         for (int i = 0; i < contaCorrentes.size(); i++) {
             contaCorrentes.get(i).imprimirConta();
+
             System.out.println("---------------------------");
 
         }
 
 
 
-    }
+
+}
 
 
 
