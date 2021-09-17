@@ -1,2 +1,2 @@
 # POO-Somativa1
-Repositório para atividade somativa de Programação Orientada a Objetos
+Repositório para atividade somativa de Programação Orientada a Objetos 👨🏼‍💻
