@@ -1,7 +1,4 @@
 package banco;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ContaCorrente {
@@ -20,14 +17,14 @@ public class ContaCorrente {
 
     public void depositar(float valor){
         Transacao trans = new Transacao("Deposito", valor);
-        assert(trans.getValor() > 0);
+        assert(valor > 0);
         array.add(trans);
     }
 
     public void retirar (float valor){
         Transacao trans = new Transacao("Saque", valor);
-        assert(trans.getValor() < 0);
-        if(retornar() < 0){
+        assert(valor < 0);
+        if((valor * (-1)) > retornar()){
             float valorRetirado = retornar() * -1;
             trans.setValor(valorRetirado);
         }
@@ -44,12 +41,19 @@ public class ContaCorrente {
 
     public void extrato(){
         System.out.println("Extrado do(a) cliente: "+ cliente.getNome());
+        System.out.println("--------------------------------------------");
         for(int i = 0; i < array.size(); i++){
             array.get(i).imprimir();
         }
         
         System.out.println("Saldo da conta: "+ retornar());
+        System.out.println("-----------------------------");
             
+    }
+
+    public void imprimirConta() {
+        System.out.println("Agencia: "+getAgencia());
+        System.out.println("Numero da conta: " + getNumero());
     }
 
     
