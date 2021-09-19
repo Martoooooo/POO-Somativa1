@@ -24,16 +24,15 @@ public class Banco {
         natan.addConta(natanCorrente);
         natan.addConta(natanCorrente1);
 
-        vitor.Imprimir();
+        vitor.imprimir();
         vitor.operar();
-        martin.Imprimir();
+        martin.imprimir();
         martin.operar();
-        natan.Imprimir();
+        natan.imprimir();
         natan.operar();
 
         // Método teste para verificar a resposta de quando o retirar é maior que o saldo existente.
-        // vitor.operarSacarMaiorSaldo();
-
-
+        //vitor.operarSacarMaiorSaldo();
+        
     }
 }

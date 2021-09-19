@@ -4,10 +4,13 @@ import java.util.ArrayList;
 
 public class ContaCorrente {
 
+    // Atributos
+    
     private int agencia, numero;
     private ArrayList<Transacao> array; 
     private Cliente cliente;
 
+    // Construtor
 
     public ContaCorrente(int agencia, int numero, Cliente cliente) {
         assert(agencia > 0);
@@ -20,13 +23,15 @@ public class ContaCorrente {
         this.cliente = cliente;
     }
 
+    // Metódos
+
     public void depositar(float valor){
         Transacao trans = new Transacao("Deposito", valor);
         assert(valor > 0);
         array.add(trans);
     }
 
-    public void retirar (float valor){
+    public void retirar(float valor){
         Transacao trans = new Transacao("Saque", valor);
         assert(valor < 0);
         if((valor * (-1)) > retornar()){
@@ -48,13 +53,13 @@ public class ContaCorrente {
 
         System.out.println("Extrato do(a) cliente: "+ cliente.getNome() + ", conta: " + this.numero + ", agência: " + this.agencia);
 
-        System.out.println("--------------------------------------------");
+        System.out.println("---------------------------");
         for(int i = 0; i < array.size(); i++){
             array.get(i).imprimir();
         }
         
         System.out.println("Saldo da conta: "+ retornar());
-        System.out.println("-----------------------------");
+        System.out.println("---------------------------");
             
     }
 
@@ -63,15 +68,7 @@ public class ContaCorrente {
         System.out.println("Numero da conta: " + getNumero());
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // Gets e sets
     
     public int getAgencia() {
         return agencia;

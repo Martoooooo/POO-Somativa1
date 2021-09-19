@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 public class Cliente {
 
+    // Atributos
+
     private String nome;
     private ArrayList<ContaCorrente> contaCorrentes;
 
+    // Construtor
 
     public Cliente(String nome) {
         this.nome = nome;
@@ -14,11 +17,14 @@ public class Cliente {
 
     }
 
+    // Métodos
+    
     public void addConta(ContaCorrente conta){
         contaCorrentes.add(conta);
     }
 
     public void operar(){
+        assert(contaCorrentes.size() > 0);
         Random random = new Random();
         int numero = random. nextInt(10000); 
         int numero2 = random. nextInt(10000);
@@ -35,8 +41,10 @@ public class Cliente {
     }
 
     public void operarSacarMaiorSaldo(){
+        assert(contaCorrentes.size() > 0);
         contaCorrentes.get(0).depositar(20);
-        contaCorrentes.get(0).depositar(-40);
+        contaCorrentes.get(0).retirar(-40);
+        contaCorrentes.get(0).extrato();
 
     }
 
@@ -50,7 +58,7 @@ public class Cliente {
         System.out.println(verificarSaldo);
     }
 
-    public void Imprimir(){
+    public void imprimir(){
         System.out.println("Cliente: " + this.nome);
         for (int i = 0; i < contaCorrentes.size(); i++) {
             contaCorrentes.get(i).imprimirConta();
@@ -58,28 +66,9 @@ public class Cliente {
             System.out.println("---------------------------");
 
         }
+    }
 
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // Gets e sets
 
     public String getNome() {
         return nome;

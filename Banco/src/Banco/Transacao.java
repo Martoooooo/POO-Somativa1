@@ -5,17 +5,32 @@ import java.time.format.DateTimeFormatter;
 
 public class Transacao {
 
+    // Atributos
+
     private String descricao;
-    private LocalDate data= LocalDate.now();
+    private LocalDate data = LocalDate.now();
     private Float valor;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     String dataFormatado = this.data.format(formatter);
+
+    // Construtor
 
     public Transacao(String descricao, Float valor) {
         this.descricao = descricao;
         this.valor = valor;
     }
+    
+    // Métodos
 
+    public void imprimir() {
+        System.out.println("Data da transação: "+ getData());
+        System.out.println("Descrição: "+ getDescricao());
+        System.out.println("Valor: R$ "+ getValor());       
+        System.out.println("---------------------------");       
+    }
+
+    //  Gets e Sets
+    
     public String getDescricao() {
         return this.descricao;
     }
@@ -40,10 +55,4 @@ public class Transacao {
         this.valor = valor;
     }
 
-    public void imprimir() {
-        System.out.println("Data da transação: "+ getData());
-        System.out.println("Descrição: "+ getDescricao());
-        System.out.println("Valor: R$ "+ getValor());       
-        System.out.println("-----------------------------------");       
-    }
 }
